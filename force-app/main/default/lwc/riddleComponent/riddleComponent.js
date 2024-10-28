@@ -2,12 +2,12 @@ import makeGetCallout from '@salesforce/apex/RiddlesCallout.makeGetCallout';
 import { api, LightningElement } from 'lwc';
 
 export default class RiddleComponent extends LightningElement {
-    @api riddle;
-    @api answer;
-    @api showAnswer = false;
-    @api error;
+    riddle;
+    answer;
+    showAnswer = false;
+    error;
 
-    @api handleRiddleClick(event) {
+    handleRiddleClick(event) {
         makeGetCallout()
             .then(result => {
                 const riddleData = JSON.parse(result);
@@ -24,7 +24,7 @@ export default class RiddleComponent extends LightningElement {
             });
     }
 
-    @api handleAnswerClick(event) {
+    handleAnswerClick(event) {
         this.showAnswer = true;
     }
 }
